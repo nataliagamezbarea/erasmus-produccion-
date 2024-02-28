@@ -1,0 +1,75 @@
+
+.comment {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+
+
+.comment-content {
+  flex-grow: 1;
+}
+
+.user-info {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.reply {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+}
+
+.reply-icon {
+  margin-right: 5px;
+}
+
+.reply-text {
+  font-weight: bold;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.comment-form button {
+  float: right;
+}
+
+.responded::after {
+  content: "Respondido a";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #f0f0f0;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.responses {
+  margin-top: 10px;
+}
+
+.responses .comment {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  position: relative;
+}
+
+.responses .user-icon {
+  margin-right: 10px;
+}

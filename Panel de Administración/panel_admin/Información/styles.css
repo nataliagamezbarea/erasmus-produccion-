@@ -1,0 +1,29 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 20px;
+    text-align: center; /* Alinea el contenido al centro */
+}
+
+h1 {
+    color: #9000ff;
+}
+
+#credencialesContainer {
+    max-width: 400px;
+    margin: 30px auto; /* Centra el contenedor verticalmente y ajusta el margen izquierdo y derecho automáticamente */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    font-size: 22px;
+}
+
+p {
+    margin: 10px 0;
+    color: #050095;
+}
+
+.icono {
+    margin-right: 8px;
+}

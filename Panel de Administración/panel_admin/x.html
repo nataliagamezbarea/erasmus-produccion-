@@ -1,0 +1,57 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Usuarios Registrados</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div class="tabla-container">
+    <table id="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre de Usuario</th>
+          <th>Email</th>
+          <th>Categoría</th>
+          <th>País</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí se mostrarán los registros desde la base de datos -->
+      </tbody>
+    </table>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+      <h2>Editar Usuario</h2>
+      <!-- Formulario de Edición -->
+      <form id="formulario-edicion" onsubmit="guardarCambios(event)">
+        <label for="nombreUsuario">Nombre de Usuario:</label>
+        <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required>
+
+        <label for="pais">País:</label>
+        <input type="text" id="pais" name="pais">
+
+        <input type="hidden" id="idUsuario" name="idUsuario">
+        <input type="submit" value="Guardar Cambios">
+      </form>
+      <!-- Fin del formulario -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

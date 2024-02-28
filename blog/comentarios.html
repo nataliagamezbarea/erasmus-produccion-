@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Comentarios</title>
+  <link rel="icon" href="/Inicio/images/logo.png">  
+
+</head>
+<body>
+
+<div class="container mt-5" id="comments-container">
+  <h2>Comentarios</h2>
+
+  <!-- Aquí se cargarán los comentarios dinámicamente -->
+  <div id="comments-list"></div>
+
+  <form id="comment-form" method="post" action="procesar_comentario.php">
+    <!-- Formulario de Comentario al final de los comentarios -->
+    <div class="comment comment-form">
+      <div class="user-icon ">
+      </div>
+              <div class="comment-content">
+            <div class="user-info"></div>
+            <textarea id="comment-textarea" name="comment-textarea" class="form-control mb-2" placeholder="Escribe tu comentario..." required></textarea>
+            <button type="submit" class="btn btn-primary">Comentar</button>
+        </div>
+    </div>
+</form>
+
+</div>
+
+<script>
+  // Función para cargar los comentarios desde el servicio web
+function cargarComentarios() {
+  // Realizar una solicitud GET al servicio web que obtiene los comentarios
+  fetch('http://localhost/erasmus/backend/obtener_datos/obtener_comentarios.php')
+    .then(response => response.json())
+    .then(comments => {
+      // Construir el HTML de los comentarios
+      const commentsHTML = comments.map(comment => `
+        <div class="comment" id="comment${comment.CommentID}">
+          <div class="user-icon"></div>
+          <div class="comment-content">
+            <div class="user-info">${comment.UserName}</div>
+            <p>${comment.CommentText}</p>
+            <div class="reply" onclick="showReplyForm('comment${comment.CommentID}', '${comment.UserName}')">
+              <span class="reply-icon">↩</span>
+              <span class="reply-text">Responder</span>
+            </div>
+          </div>
+          <div class="responses" id="responses${comment.CommentID}"></div>
+        </div>
+      `).join('');
+
+      // Agregar los comentarios al contenedor
+      document.getElementById('comments-list').innerHTML = commentsHTML;
+    })
+    .catch(error => console.error('Error al cargar los comentarios:', error));
+}
+
+// Llamar a la función para cargar los comentarios cuando la página se carga
+document.addEventListener('DOMContentLoaded', cargarComentarios);
+
+</script>
+<script src="responder_comentario.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+// Función para cargar los comentarios desde el servicio web
+function cargarComentarios() {
+  // Realizar una solicitud GET al servicio web que obtiene los comentarios
+  fetch('http://localhost/mediumish-html/backend/obtenercomentarios.php')
+    .then(response => response.json())
+    .then(comments => {
+      // Construir el HTML de los comentarios
+      const commentsHTML = comments.map(comment => `
+        <div class="comment" id="comment${comment.CommentID}">
+          <div class="user-icon"></div>
+          <div class="comment-content">
+            <div class="user-info">${comment.UserName}</div>
+            <p>${comment.CommentText}</p>
+            <div class="reply" onclick="showReplyForm('comment${comment.CommentID}', '${comment.UserName}')">
+              <span class="reply-icon">↩</span>
+              <span class="reply-text">Responder</span>
+            </div>
+          </div>
+          <div class="responses" id="responses${comment.CommentID}"></div>
+        </div>
+      `).join('');
+
+      // Agregar los comentarios al contenedor
+      document.getElementById('comments-list').innerHTML = commentsHTML;
+    })
+    .catch(error => console.error('Error al cargar los comentarios:', error));
+}
+
+// Llamar a la función para cargar los comentarios cuando la página se carga
+document.addEventListener('DOMContentLoaded', cargarComentarios);
+</script>
+
+</body>
+</html>

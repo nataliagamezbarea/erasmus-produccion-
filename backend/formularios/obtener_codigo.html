@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar tu cuenta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section>
+        <div class="login-box">
+
+            <!-- Combined Form for Gmail Verification and New Password -->
+            <form id="verificationAndNewPasswordForm" method="post" action="./gmail/recuperar_cuenta/enviar_verificacion.php">
+
+                <h2>Recuperar tu cuenta</h2>
+
+                <!-- Agregar campo oculto para el nombre de usuario -->
+                <input type="hidden" id="nombre_usuario" name="nombre_usuario" value="nombre_de_usuario">
+
+                <!-- Gmail Input -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="gmail" name="gmail" required>
+                    <label for="gmail">Gmail</label>   
+                </div>
+                <div class="register-link">
+                    <a href="./recuperar_contraseña.html" id="enviarVerificacion">Recuperar cuenta</a>
+                </div>
+                <br>
+                <button type="submit">Enviar verificación</button>
+
+            </form>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/ionicons@5.0.1/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

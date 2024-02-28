@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar tu cuenta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section>
+        <div class="login-box">
+
+            <!-- Combined Form for Gmail Verification and New Password -->
+            <form id="verificationAndNewPasswordForm" method="post" action="./gmail/recuperar_cuenta/procesar_datos.php">
+
+                <h2>Recuperar tu cuenta</h2>
+
+                <!-- Gmail Verification Code -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="text" id="codigo_verificacion" name="codigo_verificacion" required>
+                    <label for="codigo_verificacion">Código de verificación</label>   
+                </div>
+
+                <!-- Gmail Input -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="gmail" name="gmail" required>
+                    <label for="gmail">Gmail</label>   
+                </div>
+
+                <!-- New Password -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" id="new_password" name="new_password" required>
+                    <label for="new_password">Nueva Contraseña</label>   
+                </div>
+
+                <div class="register-link">
+                    <a href="./obtener_codigo.html" id="enviarVerificacion">Enviar verificación</a>
+                </div>
+
+                <button type="submit">Guardar Contraseña</button>
+
+            </form>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/ionicons@5.0.1/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
